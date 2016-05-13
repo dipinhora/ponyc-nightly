@@ -1,10 +1,5 @@
 language: c
 
-branches:
-  only:
-    - master
-    - nightly*
-
 sudo: required
 
 addons:

@@ -60,7 +60,7 @@ script:
 before_deploy:
   - pwd
   - ls -l
-  - export RELEASE_PKG_FILE=$(ls build/*/*)
+  - export RELEASE_PKG_FILE=$(ls build/$config/*)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
 deploy:
   skip_cleanup: true
@@ -68,7 +68,7 @@ deploy:
   api_key:
     secure: RiaF7vjNb2zbdy1iVsvO9llR8ZPh1u4DjVWEv3OW+wJnaNqcMX3x+dAgaZ9NTDSBJMifquM+JR5SWSVoSc4Fq0+USFMSaLZ3cWofv1ZHt7p21VJ35l2y8dQgXUFL1GodensZVhdDBiZCWwrVIfSAGycsGatZNe3O6FEJeZ1erzw2EsW5UBJWNShTP+gqzRG+HJIbZ397q1kDXiKcIHv8oFzYCAp7rHokLKuTRJSxxGjXKfzk6uMZL9yiXuzOPdM7/M9iyQCOvFKmb2FSY1w71YT97/EGpawui4NMU7fh/rOpjZljWEK4Uc/02Zt1nOGcoa+6Q/dyHKvTP2aI6FJyGlrtlucCw80TK2JIfe5hKyYM2FcEaCybXfPWLdGQZ5o4ObrXoSlzbOfzL0Cm0JrHWGadxSg0R18Dwbm2NBSzwvtXXBB4UGuZZxezZalu5Y/DrK/a8Zu+J0nnX/4EVB6ArPmS+ebqW5KrAhBVLfu9osGBzqopflw7FsqP1GT21tqlWe9/1isamVWi91gh/aCzNEelmFSCODBzf12++E+rMNYU11dpcxZxIA68EDPHyxRmyglBokg9L8+0ec/B4spVsPBn7OkyiPZMYITlsQ7UqpFqVISVFLOUNSc80xCT2dEj9hh0hCfbGSbH9Y7Df8KLOUuPW8KNJkrCc1kpkEhJvLE=
   file_glob: true
-  file: "${RELEASE_PKG_FILE}"
+  file: "build/$config/*"
   on:
     tags: true
     condition: $UPLOAD = yes

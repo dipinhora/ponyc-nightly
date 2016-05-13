@@ -58,7 +58,9 @@ script:
     fi;
 
 before_deploy:
-  - export RELEASE_PKG_FILE=$(ls ponyc/build/*/*)
+  - pwd
+  - ls -l
+  - export RELEASE_PKG_FILE=$(ls build/*/*)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
 deploy:
   skip_cleanup: true

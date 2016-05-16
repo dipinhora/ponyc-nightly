@@ -9,7 +9,6 @@ clone_depth: 1
 
 clone_folder: C:\projects\ponyc
 
-# scripts to run before build
 before_build:
   - rmdir /s C:\projects\ponyc
   - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc

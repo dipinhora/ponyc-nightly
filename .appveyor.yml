@@ -9,10 +9,6 @@ clone_depth: 1
 
 clone_folder: C:\projects\ponyc
 
-before_build:
-  - rmdir /s C:\projects\ponyc
-  - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
-
 install:
   - ps: |
       cd C:\
@@ -31,12 +27,16 @@ install:
         del C:\llvm37.zip
       }
       $env:path += ";C:\LLVM\bin"
-      cd C:\projects\ponyc
-      C:\premake5.exe --with-tests --to=work/vs2013 vs2013
 
 cache:
   - C:\LLVM\ -> .appveyor.yml
   - C:\premake5.exe -> .appveyor.yml
+
+before_build:
+  - rmdir /s C:\projects\ponyc
+  - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
+  - ps: cd C:\projects\ponyc
+  - C:\premake5.exe --with-tests --to=work/vs2013 vs2013
 
 build:
   project: work\vs2013\ponyc.sln

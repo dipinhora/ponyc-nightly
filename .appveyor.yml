@@ -33,7 +33,7 @@ cache:
   - C:\premake5.exe -> .appveyor.yml
 
 before_build:
-  - rmdir /s C:\projects\ponyc
+  - rmdir /s /q C:\projects\ponyc
   - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
   - ps: cd C:\projects\ponyc
   - C:\premake5.exe --with-tests --to=work/vs2013 vs2013

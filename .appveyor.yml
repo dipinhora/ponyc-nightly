@@ -48,4 +48,7 @@ test_script:
   - dir build\debug
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
+  - C:\projects\ponyc\build\debug\ponyc.exe -d -s packages/stdlib
+  - C:\projects\ponyc\stdlib.exe
+  - del C:\projects\ponyc\stdlib.exe
 

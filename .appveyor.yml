@@ -16,6 +16,11 @@ install:
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
+  - set
+  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+  - set
+  - ps: CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+  - set
   - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\

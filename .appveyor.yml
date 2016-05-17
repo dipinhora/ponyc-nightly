@@ -12,6 +12,10 @@ clone_folder: C:\projects\ponyc
 install:
   - dir /x C:\
   - dir /x C:\PROGRA~2\
+  - dir /x C:\PROGRA~2\MICROS~3.0\
+  - dir /x C:\PROGRA~2\MICROS~3.0\VC\
+  - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
+  - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
   - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\

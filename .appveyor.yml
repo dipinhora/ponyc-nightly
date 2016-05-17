@@ -10,7 +10,6 @@ clone_depth: 1
 clone_folder: C:\projects\ponyc
 
 install:
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe
@@ -44,6 +43,7 @@ build:
   verbosity: minimal
 
 test_script:
+  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
   - C:\projects\ponyc\build\debug\ponyc.exe -d -s packages/stdlib

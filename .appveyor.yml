@@ -16,17 +16,14 @@ install:
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
-  - vcvars32.bat
-  - set
-  - vcvars32.bat & set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set
-  - set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-  - set
-  - ps: "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-  - set
-  - dir /x "%VS120COMNTOOLS%"
-  - dir "C:\\Program Files (x86)\\"
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set
+#  - set
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+#  - set
+#  - ps: "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+#  - set
+#  - dir /x "%VS120COMNTOOLS%"
+#  - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe
@@ -60,14 +57,14 @@ build:
   verbosity: minimal
 
 test_script:
-  - dir "C:\\Program Files (x86)\\"
-  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-  - dir "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\"
-  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+#  - dir "C:\\Program Files (x86)\\"
+#  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
+#  - dir "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\"
+#  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
-  - C:\projects\ponyc\build\debug\ponyc.exe -d -s packages/stdlib
+  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & C:\projects\ponyc\build\debug\ponyc.exe -d -s packages/stdlib
   - C:\projects\ponyc\stdlib.exe
   - del C:\projects\ponyc\stdlib.exe
 

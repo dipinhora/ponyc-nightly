@@ -41,3 +41,11 @@ before_build:
 build:
   project: work\vs2013\ponyc.sln
   verbosity: minimal
+
+test_script:
+  - dir
+  - dir build
+  - dir build\debug
+  - C:\projects\ponyc\build\debug\testc.exe
+  - C:\projects\ponyc\build\debug\testrt.exe
+

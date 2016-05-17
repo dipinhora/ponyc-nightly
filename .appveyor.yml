@@ -10,6 +10,8 @@ clone_depth: 1
 clone_folder: C:\projects\ponyc
 
 install:
+  - dir C:\
+  - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe
@@ -43,8 +45,6 @@ build:
   verbosity: minimal
 
 test_script:
-  - dir C:\
-  - dir C:\Program Files (x86)\
   - dir "C:\\Program Files (x86)\\"
   - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
   - dir "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\"

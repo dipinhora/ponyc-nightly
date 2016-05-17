@@ -10,8 +10,8 @@ clone_depth: 1
 clone_folder: C:\projects\ponyc
 
 install:
-  - dir C:\
-  - dir "C:\\Program Files (x86)\\"
+  - dir /x C:\
+  - dir C:\Progra*
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe

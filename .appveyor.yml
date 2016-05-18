@@ -17,7 +17,6 @@ install:
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
   - dir /x C:\PROGRA~1\
-  - dir /x 'C:\Program Files\Microsoft SDKs\Windows\v7.1\'
   - dir /x C:\PROGRA~1\MIA713~1\Windows\
   - dir /x C:\PROGRA~1\MIA713~1\Windows\v7.1\
 #  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set

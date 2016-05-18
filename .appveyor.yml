@@ -48,6 +48,8 @@ test_script:
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
   - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -d -s packages/stdlib
-  - .\stdlib.exe
-  - del .\stdlib.exe
+  - echo %CD%
+  - dir
+  - stdlib.exe
+  - del stdlib.exe
 

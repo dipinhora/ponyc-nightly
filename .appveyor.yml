@@ -47,12 +47,9 @@ test_script:
 #  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
-  - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -d -s packages/stdlib
+  - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -o C:\projects\ponyc\ -d -s packages/stdlib
   - echo %CD%
   - dir
-  - cd \
-  - dir /b /s stdlib.exe
-  - cd C:\projects\ponyc
   - stdlib.exe
   - del stdlib.exe
 

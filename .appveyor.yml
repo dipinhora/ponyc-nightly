@@ -16,6 +16,7 @@ install:
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
   - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
+  - dir /x C:\MIA713~1\
 #  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set
 #  - set
 #  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
@@ -23,7 +24,7 @@ install:
 #  - ps: "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
 #  - set
 #  - dir /x "%VS120COMNTOOLS%"
-#  - dir "C:\\Program Files (x86)\\"
+  - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe

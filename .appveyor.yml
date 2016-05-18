@@ -50,6 +50,10 @@ test_script:
   - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -d -s packages/stdlib
   - echo %CD%
   - dir
+  - dir /b /s stdlib.exe
+  - cd \
+  - dir /b /s stdlib.exe
+  - cd C:\projects\ponyc
   - stdlib.exe
   - del stdlib.exe
 

@@ -10,24 +10,6 @@ clone_depth: 1
 clone_folder: C:\projects\ponyc
 
 install:
-  - dir /x C:\
-  - dir /x C:\PROGRA~2\
-  - dir /x C:\PROGRA~2\MICROS~3.0\
-  - dir /x C:\PROGRA~2\MICROS~3.0\VC\
-  - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\
-  - dir /x C:\PROGRA~2\MICROS~3.0\VC\bin\amd64\
-  - dir /x C:\PROGRA~1\
-  - dir /x C:\PROGRA~1\MIA713~1\Windows\
-  - dir /x C:\PROGRA~1\MIA713~1\Windows\v7.1\
-  - dir /x C:\PROGRA~1\MIA713~1\Windows\v7.1\Lib\
-#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set
-#  - set
-#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-#  - set
-#  - ps: "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-#  - set
-#  - dir /x "%VS120COMNTOOLS%"
-#  - dir "C:\\Program Files (x86)\\"
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe
@@ -61,18 +43,11 @@ build:
   verbosity: minimal
 
 test_script:
-#  - dir "C:\\Program Files (x86)\\"
-#  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-#  - dir "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\"
-#  - type "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
 #  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
-  - set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
-  - set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat" & C:\projects\ponyc\build\debug\ponyc.exe -V 3 -d -s packages/stdlib
-  - C:\projects\ponyc\stdlib.exe
-  - del C:\projects\ponyc\stdlib.exe
+  - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -d -s packages/stdlib
+  - .\stdlib.exe
+  - del .\stdlib.exe
 

@@ -10,15 +10,6 @@ clone_depth: 1
 clone_folder: C:\projects\ponyc
 
 install:
-  - dir C:\progra~1\LLVM\
-  - dir C:\progra~1\LLVM\bin
-  - dir C:\progra~1\LLVM\lib
-  - dir C:\progra~1\LLVM\libexec
-  - dir C:\progra~1\LLVM\tools
-  - dir C:\progra~1\LLVM\include
-  - dir C:\progra~1\LLVM\msbuild-bin
-  - dir C:\progra~1\LLVM\share
-  - llvm-config --help
   - ps: |
       cd C:\
       $premakeInstalled = Test-Path C:\premake5.exe
@@ -29,13 +20,14 @@ install:
         7z x C:\premake5.zip
         del C:\premake5.zip
       }
-#      if(-Not $llvmInstalled)
-#      {
-#        wget http://llvm.org/releases/3.8.0/LLVM-3.8.0-win64.exe -OutFile C:\llvm38.exe
-#        C:\llvm38.exe
-#        del C:\llvm38.exe
-#      }
-#      $env:path += ";C:\LLVM\bin"
+      if(-Not $llvmInstalled)
+      {
+        wget http://llvm.org/releases/3.8.0/LLVM-3.8.0-win64.exe -OutFile C:\llvm38.exe
+        C:\llvm38.exe /?
+        C:\llvm38.exe
+        del C:\llvm38.exe
+      }
+      $env:path += ";C:\LLVM\bin"
 
 cache:
 #  - C:\LLVM\ -> .appveyor.yml

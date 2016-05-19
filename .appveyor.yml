@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-image: Visual Studio 2013
+image: Visual Studio 2015
 
 configuration:
   - Debug
@@ -36,10 +36,10 @@ before_build:
   - rmdir /s /q C:\projects\ponyc
   - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
   - ps: cd C:\projects\ponyc
-  - C:\premake5.exe --with-tests --to=work/vs2013 vs2013
+  - C:\premake5.exe --with-tests --to=work/vs2015 vs2015
 
 build:
-  project: work\vs2013\ponyc.sln
+  project: work\vs2015\ponyc.sln
   verbosity: minimal
 
 test_script:

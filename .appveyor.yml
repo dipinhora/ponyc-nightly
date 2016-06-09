@@ -30,8 +30,8 @@ install:
   - git clone https://github.com/kulibali/ponyc-windows-libs.git C:\projects\ponyc-windows-libs
   - ps: cd C:\projects\ponyc-windows-libs
   - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
-  - ps: getlibs.bat
-  - ps: setenv.bat
+  - ps: C:\projects\ponyc-windows-libs\getlibs.bat
+  - ps: C:\projects\ponyc-windows-libs\setenv.bat
 
 cache:
   - C:\LLVM\ -> .appveyor.yml

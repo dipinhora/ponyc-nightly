@@ -32,6 +32,10 @@ install:
   - ps: cd C:\projects\ponyc-windows-libs
   - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
   - sed -i.bak2 's/echo off/echo on/g' getlibs.bat
+  - dir c:\msys64\
+  - dir C:\MinGW\bin\
+  - dir C:\cygwin
+  - dir C:\cygwin64
   - ps: C:\projects\ponyc-windows-libs\getlibs.bat
   - ps: C:\projects\ponyc-windows-libs\setenv.bat
 

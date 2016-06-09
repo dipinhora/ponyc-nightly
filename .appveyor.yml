@@ -27,9 +27,6 @@ install:
         del C:\llvm37.zip
       }
       $env:path += ";C:\LLVM\bin"
-  - dir C:\
-  - start "" /wait C:\llvm38.exe /S /D:=C:\LLVM\
-  - dir C:\
 
 cache:
   - C:\LLVM\ -> .appveyor.yml

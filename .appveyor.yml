@@ -27,7 +27,7 @@ install:
         del C:\llvm37.zip
       }
       $env:path += ";C:\LLVM\bin"
-  - git clone https://github.com:kulibali/ponyc-windows-libs.git C:\projects\ponyc-windows-libs
+  - git clone https://github.com/kulibali/ponyc-windows-libs.git C:\projects\ponyc-windows-libs
   - ps: cd C:\projects\ponyc-windows-libs
   - sed -i.bak s/14 2015/12 2013/g getlibs.bat
   - getlibs.bat

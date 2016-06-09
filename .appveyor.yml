@@ -27,8 +27,9 @@ install:
         del C:\llvm37.zip
       }
       $env:path += ";C:\LLVM\bin"
-  - git clone git@github.com:kulibali/ponyc-windows-libs.git
-  - cd ponyc-windows-libs
+  - git clone https://github.com:kulibali/ponyc-windows-libs.git C:\projects\ponyc-windows-libs
+  - ps: cd C:\projects\ponyc-windows-libs
+  - sed -i.bak s/14 2015/12 2013/g getlibs.bat
   - getlibs.bat
   - setenv.bat
 
@@ -47,8 +48,6 @@ build:
   verbosity: minimal
 
 test_script:
-#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat"
-#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\vcvars32.bat"
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
   - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -o C:\projects\ponyc\ -d -s packages/stdlib

@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-image: Visual Studio 2015
+image: Visual Studio 2013
 
 configuration:
   - Debug
@@ -22,8 +22,9 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget http://llvm.org/releases/3.8.0/LLVM-3.8.0-win64.exe -OutFile C:\llvm38.exe
-        dir C:\
+        wget http://releases.ponylang.org/llvm/llvm37-final-x86_64-windows-release.zip -OutFile C:\llvm37.zip
+        7z x C:\llvm37.zip
+        del C:\llvm37.zip
       }
       $env:path += ";C:\LLVM\bin"
   - dir C:\
@@ -38,10 +39,10 @@ before_build:
   - rmdir /s /q C:\projects\ponyc
   - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
   - ps: cd C:\projects\ponyc
-  - C:\premake5.exe --with-tests --to=work/vs2015 vs2015
+  - C:\premake5.exe --with-tests --to=work/vs2013 vs2013
 
 build:
-  project: work\vs2015\ponyc.sln
+  project: work\vs2013\ponyc.sln
   verbosity: minimal
 
 test_script:

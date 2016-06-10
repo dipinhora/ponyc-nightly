@@ -32,8 +32,10 @@ install:
   - ps: cd C:\projects\ponyc-windows-libs
   - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
   - sed -i.bak2 's/echo off/echo on/g' getlibs.bat
-  - sed -i.bak3 's/wget/curl -fsS -O /g' getlibs.bat
-  - sed -i.bak4 's/pcre2-10.20/pcre2-10.21/g' getlibs.bat
+  - sed -i.bak3 's/%PCRE2_SRC% wget/%PCRE2_SRC% curl -fsS -o %PCRE2_SRC%/g' getlibs.bat
+  - sed -i.bak4 's/wget/curl -fsS -O /g' getlibs.bat
+  - sed -i.bak5 's/pcre2-10.20/pcre2-10.21/g' getlibs.bat
+  - sed -i.bak6 's!ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/%PCRE2_SRC%!https://sourceforge.net/projects/pcre/files/pcre2/10.21/%PCRE2_SRC%/download!g' getlibs.bat
   - ps: C:\projects\ponyc-windows-libs\getlibs.bat
   - ps: C:\projects\ponyc-windows-libs\setenv.bat
 

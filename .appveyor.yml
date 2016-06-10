@@ -28,28 +28,22 @@ install:
       }
       $env:path += ";C:\LLVM\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path
-  - ps: |
-      $libsInstalled = Test-Path C:\ponyc-windows-libs
-      if(-Not $libsInstalled)
-      {
-        git clone https://github.com/kulibali/ponyc-windows-libs.git C:\projects\ponyc-windows-libs
-        cd C:\projects\ponyc-windows-libs
-        sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
-        sed -i.bak2 's/echo off/echo on/g' getlibs.bat
-        sed -i.bak3 's/%%%%PCRE2_SRC%%%% wget/%%%%PCRE2_SRC%%%% curl -fsSL -o %%%%PCRE2_SRC%%%% /g' getlibs.bat
-        sed -i.bak4 's/wget/curl -fsSL -O /g' getlibs.bat
-        sed -i.bak5 's/pcre2-10.20/pcre2-10.21/g' getlibs.bat
-        sed -i.bak6 's/.tar.gz/.zip/g' getlibs.bat
-        sed -i.bak7 's@devenv .*@msbuild PCRE2.sln /t:pcre2-8 /p:Configuration=Release@g' getlibs.bat
-        sed -i.bak8 's/gunzip .*/unzip -o %%%%PCRE2_SRC%%%%/' getlibs.bat
-        type getlibs.bat
-        sed -i.bak9 's@ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/%%%%PCRE2_SRC%%%%@https://sourceforge.net/projects/pcre/files/pcre2/10.21/%%%%PCRE2_SRC%%%%/download@g' getlibs.bat
-        type getlibs.bat
-        C:\projects\ponyc-windows-libs\getlibs.bat
-        C:\projects\ponyc-windows-libs\setenv.bat
-      }
-      $env:LIB = "C:\ponyc-windows-libs\lib;" + $env:LIB
-      $env:path += ";C:\ponyc-windows-libs\lib"
+  - git clone https://github.com/kulibali/ponyc-windows-libs.git C:\ponyc-windows-libs
+  - ps: cd C:\ponyc-windows-libs
+  - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
+  - sed -i.bak2 's/echo off/echo on/g' getlibs.bat
+  - sed -i.bak3 's/%%%%PCRE2_SRC%%%% wget/%%%%PCRE2_SRC%%%% curl -fsSL -o %%%%PCRE2_SRC%%%% /g' getlibs.bat
+  - sed -i.bak4 's/wget/curl -fsSL -O /g' getlibs.bat
+  - sed -i.bak5 's/pcre2-10.20/pcre2-10.21/g' getlibs.bat
+  - sed -i.bak6 's/.tar.gz/.zip/g' getlibs.bat
+  - sed -i.bak7 's@devenv .*@msbuild PCRE2.sln /t:pcre2-8 /p:Configuration=Release@g' getlibs.bat
+  - sed -i.bak8 's/gunzip .*/unzip -o %%%%PCRE2_SRC%%%%/' getlibs.bat
+  - type getlibs.bat
+  - sed -i.bak9 's@ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/%%%%PCRE2_SRC%%%%@https://sourceforge.net/projects/pcre/files/pcre2/10.21/%%%%PCRE2_SRC%%%%/download@g' getlibs.bat
+  - type getlibs.bat
+  - ps: C:\projects\ponyc-windows-libs\getlibs.bat
+  - ps: $env:LIB = "C:\ponyc-windows-libs\lib;" + $env:LIB
+  - ps: $env:path += ";C:\ponyc-windows-libs\lib"
 
 cache:
   - C:\LLVM\ -> .appveyor.yml

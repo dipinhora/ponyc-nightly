@@ -33,6 +33,7 @@ install:
   - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
   - sed -i.bak2 's/echo off/echo on/g' getlibs.bat
   - sed -i.bak3 's/wget/curl -s -O /g' getlibs.bat
+  - sed -i.bak4 's/pcre2-10.20/pcre2-10.21/g' getlibs.bat
   - ps: C:\projects\ponyc-windows-libs\getlibs.bat
   - ps: C:\projects\ponyc-windows-libs\setenv.bat
 

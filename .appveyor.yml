@@ -41,7 +41,7 @@ install:
   - type getlibs.bat
   - sed -i.bak9 's@ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/%%%%PCRE2_SRC%%%%@https://sourceforge.net/projects/pcre/files/pcre2/10.21/%%%%PCRE2_SRC%%%%/download@g' getlibs.bat
   - type getlibs.bat
-  - ps: C:\projects\ponyc-windows-libs\getlibs.bat
+  - ps: C:\ponyc-windows-libs\getlibs.bat
   - ps: $env:LIB = "C:\ponyc-windows-libs\lib;" + $env:LIB
   - ps: $env:path += ";C:\ponyc-windows-libs\lib"
 

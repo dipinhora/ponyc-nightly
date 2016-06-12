@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-image: Visual Studio 2013
+image: Visual Studio 2015
 
 configuration:
   - Debug
@@ -22,15 +22,14 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget http://releases.ponylang.org/llvm/llvm37-final-x86_64-windows-release.zip -OutFile C:\llvm37.zip
-        7z x C:\llvm37.zip
-        del C:\llvm37.zip
+        wget http://releases.ponylang.org/llvm/llvm380-final-x86_64-windows-release.zip -OutFile C:\llvm38.zip
+        7z x C:\llvm38.zip
+        del C:\llvm38.zip
       }
       $env:path += ";C:\LLVM\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path
   - git clone https://github.com/kulibali/ponyc-windows-libs.git C:\ponyc-windows-libs
   - ps: cd C:\ponyc-windows-libs
-  - sed -i.bak 's/14 2015/12 2013/g' getlibs.bat
   - sed -i.bak2 's/echo off/echo on/g' getlibs.bat
   - sed -i.bak3 's/%%%%PCRE2_SRC%%%% wget/%%%%PCRE2_SRC%%%% curl -fsSL -o %%%%PCRE2_SRC%%%% /g' getlibs.bat
   - sed -i.bak4 's/wget/curl -fsSL -O /g' getlibs.bat
@@ -54,17 +53,18 @@ before_build:
   - rmdir /s /q C:\projects\ponyc
   - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
   - ps: cd C:\projects\ponyc
-  - C:\premake5.exe --with-tests --to=work/vs2013 vs2013
+  - C:\premake5.exe --with-tests --to=work/vs2015 vs2015
 
 build:
-  project: work\vs2013\ponyc.sln
+  project: work\vs2015\ponyc.sln
   verbosity: minimal
 
 test_script:
   - C:\projects\ponyc\build\debug\testc.exe
   - C:\projects\ponyc\build\debug\testrt.exe
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat" & set
-  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\vcvars64.bat" & C:\projects\ponyc\build\debug\ponyc.exe -V 3 -o C:\projects\ponyc\ -d -s packages/stdlib
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\amd64\\vcvars64.bat" & set
+#  - CALL "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\amd64\\vcvars64.bat" & C:\projects\ponyc\build\debug\ponyc.exe -V 3 -o C:\projects\ponyc\ -d -s packages/stdlib
+  - C:\projects\ponyc\build\debug\ponyc.exe -V 3 -o C:\projects\ponyc\ -d -s packages/stdlib
   - echo %CD%
   - dir
   - stdlib.exe

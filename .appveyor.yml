@@ -22,9 +22,13 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget http://llvm.org/releases/3.8.0/LLVM-3.8.0-win64.exe -OutFile C:\llvm38.exe
-        7z x C:\llvm38.exe
-        del C:\llvm38.exe
+        wget http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz -OutFile C:\LLVM.tar.xz
+        7z x C:\LLVM.tar.xz
+        7z x C:\LLVM.tar
+        del C:\LLVM.tar.xz
+        del C:\LLVM.tar
+        cmake -G "Visual Studio 14 2015 Win64"
+        cmake --build . --target install
       }
       $env:path += ";C:\LLVM\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path

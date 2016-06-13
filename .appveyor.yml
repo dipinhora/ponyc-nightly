@@ -27,7 +27,7 @@ install:
         7z x C:\LLVM.tar
         del C:\LLVM.tar.xz
         del C:\LLVM.tar
-        rename llvm-3.8.0.src LLVM
+        rename-item -path C:\llvm-3.8.0.src -newname LLVM
         cd C:\LLVM\
         cmake -G "Visual Studio 14 2015 Win64"
         cmake --build . --target install

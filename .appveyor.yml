@@ -22,9 +22,9 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget http://releases.ponylang.org/llvm/llvm371-final-x86_64-windows-release.zip -OutFile C:\llvm38.zip
-        7z x C:\llvm38.zip
-        del C:\llvm38.zip
+        wget http://llvm.org/releases/3.8.0/LLVM-3.8.0-win64.exe -OutFile C:\llvm38.exe
+        7z x C:\llvm38.exe
+        del C:\llvm38.exe
       }
       $env:path += ";C:\LLVM\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path

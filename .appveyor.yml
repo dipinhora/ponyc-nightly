@@ -22,15 +22,9 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz -OutFile C:\LLVM.tar.xz
-        7z x C:\LLVM.tar.xz
-        7z x C:\LLVM.tar
-        del C:\LLVM.tar.xz
-        del C:\LLVM.tar
-        rename-item -path C:\llvm-3.8.0.src -newname LLVM
-        cd C:\LLVM\
-        cmake -G "Visual Studio 14 2015 Win64"
-        cmake --build . --target install
+        wget https://github.com/dipinhora/ponyc-llvm/releases/download/LLVM-3.8-Release-VS2015/LLVM-3.8-Release-VS2015.7z -OutFile C:\LLVM.7z
+        7z x C:\LLVM.7z
+        del C:\LLVM.7z
       }
       $env:path += ";C:\LLVM\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path

@@ -1,1 +1,1 @@
-Nightly builds of ponyc.
+Nightly builds of ponyc using Appveyor and Travis.

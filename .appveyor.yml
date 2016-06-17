@@ -60,7 +60,7 @@ cache:
 
 before_build:
   - rmdir /s /q C:\projects\ponyc
-  - git clone -q --depth=1 --branch=master https://github.com/dipinhora/ponyc.git C:\projects\ponyc
+  - git clone -q --depth=1 --branch=master https://github.com/ponylang/ponyc.git C:\projects\ponyc
   - ps: cd C:\projects\ponyc
   - C:\premake5.exe --with-tests --to=work/vs2015 vs2015
 

@@ -57,7 +57,7 @@ install:
       $env:path += ";C:\ponyc-windows-libs\lib"
 
 cache:
-  - 'C:\LLVM-%llvm%\' -> .appveyor.yml
+  - C:\LLVM-%llvm%\ -> .appveyor.yml
   - C:\premake5.exe -> .appveyor.yml
   - C:\ponyc-windows-libs\ -> .appveyor.yml
 

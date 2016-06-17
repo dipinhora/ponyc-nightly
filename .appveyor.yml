@@ -2,8 +2,15 @@ version: 1.0.{build}
 
 image: Visual Studio 2015
 
+environment:
+  matrix:
+  - llvm: 3.8.0
+  - llvm: 3.7.1
+  - llvm: 3.6.2
+
 configuration:
   - Debug
+  - Release
 
 clone_depth: 100
 
@@ -22,11 +29,12 @@ install:
       }
       if(-Not $llvmInstalled)
       {
-        wget https://github.com/dipinhora/ponyc-llvm/releases/download/LLVM-3.8-Release-VS2015/LLVM-3.8-Release-VS2015.7z -OutFile C:\LLVM.7z
+        wget "https://github.com/dipinhora/ponyc-llvm/releases/download/LLVM-Release-VS2015/LLVM-${llvm}-Release-VS2015.7z" -OutFile C:\LLVM.7z
         7z x C:\LLVM.7z
         del C:\LLVM.7z
+        Rename-Item C:\LLVM "LLVM-${llvm}"
       }
-      $env:path += ";C:\LLVM\bin"
+      $env:path += ";C:\LLVM-${llvm}\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path
   - ps: |
       cd C:\
@@ -49,7 +57,7 @@ install:
       $env:path += ";C:\ponyc-windows-libs\lib"
 
 cache:
-  - C:\LLVM\ -> .appveyor.yml
+  - 'C:\LLVM-%llvm%\' -> .appveyor.yml
   - C:\premake5.exe -> .appveyor.yml
   - C:\ponyc-windows-libs\ -> .appveyor.yml
 

@@ -23,7 +23,7 @@ install:
       $llvmInstalled = Test-Path C:\LLVM
       if(-Not $premakeInstalled)
       {
-        wget https://github.com/premake/premake-core/releases/download/v5.0.0-alpha8/premake-5.0.0-alpha8-windows.zip -OutFile C:\premake5.zip
+        wget https://github.com/premake/premake-core/releases/download/v5.0.0-alpha9/premake-5.0.0-alpha9-windows.zip -OutFile C:\premake5.zip
         7z x C:\premake5.zip
         del C:\premake5.zip
       }
@@ -32,7 +32,6 @@ install:
         wget "https://github.com/dipinhora/ponyc-llvm/releases/download/LLVM-Release-VS2015/LLVM-${env:llvm}-Release-VS2015.7z" -OutFile C:\LLVM.7z
         7z x C:\LLVM.7z
         del C:\LLVM.7z
-        Rename-Item C:\LLVM "LLVM-${env:llvm}"
       }
       $env:path += ";C:\LLVM-${env:llvm}\bin"
       $env:path = "C:\Program Files (x86)\Git\bin;" + $env:path
@@ -57,7 +56,7 @@ install:
       $env:path += ";C:\ponyc-windows-libs\lib"
 
 cache:
-  - C:\LLVM-%llvm%\ -> .appveyor.yml
+  - 'C:\LLVM-%llvm%\ -> .appveyor.yml'
   - C:\premake5.exe -> .appveyor.yml
   - C:\ponyc-windows-libs\ -> .appveyor.yml
 

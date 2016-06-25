@@ -49,7 +49,7 @@ install:
     fi;
 
 script:
-  - git clone https://github.com/dipinhora/ponyc.git
+  - git clone https://github.com/dipinhora/ponyc-old.git
   - cd ponyc
   - if [[ $TRAVIS_OS_NAME = "linux" && $TRAVIS_TAG != "" ]];
     then
